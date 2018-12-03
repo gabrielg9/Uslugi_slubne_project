@@ -1,5 +1,5 @@
 {
-  "name": "uslugi-slubne-project",
+  "name": "uslugi-slubne-projekt",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,15 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.3.14",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11"
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "pug": "^2.0.3"
   }
 }
