@@ -1,4 +1,5 @@
 var Product = require('../models/product');
+const getView = require('get-view');
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
@@ -23,9 +24,9 @@ exports.product_create = function (req, res) {
 };
 
 exports.product_details = function (req, res) {
-    Product.findById(req.params.id, function (err, product) {
-        if (err) return next(err);
-        res.send(product);
+            Product.findById(req.params.id, function (err, product) {
+                if (err) return next(err);
+                res.send(product);
     })
 };
 
@@ -41,4 +42,18 @@ exports.product_delete = function (req, res) {
         if (err) return next(err);
         res.send('Deleted successfully!');
     })
+};
+
+exports.findAll = function(req, res, next){
+    const sort_by = {};
+    sort_by[req.query.sort_by || 'price'] = req.query.order_by || 'desc';
+    Product.find(req.filters)
+        .sort(sort_by)
+        .exec()
+        .then(results => res.status(200).json({
+            count: results.length,
+            rooms: results
+        }))
+        .catch(next)
+
 };

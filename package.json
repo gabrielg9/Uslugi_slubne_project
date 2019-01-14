@@ -6,10 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "await": "^0.2.6",
+    "body-parser": "latest",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "get-view": "^2.0.0",
     "http-errors": "~1.6.2",
     "lodash": "^4.17.11",
     "mango": "0.0.4",
@@ -21,7 +24,6 @@
     "passport-google-oauth20": "^1.0.0",
     "pug": "^2.0.3",
     "qs": "^6.6.0",
-    "querystringify": "^2.1.0",
-    "body-parser": "latest"
+    "querystringify": "^2.1.0"
   }
 }
