@@ -3,13 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 
 var app = express();
+app.use(bodyParser());
 
 require('./services/cookieSession')(app);
-require('./models/product')
+require('./models/product');
 require('./models/User');
+require('./models/Comment');
 require('./services/passport');
 require('./services/mongoConnect');
 
@@ -19,6 +22,7 @@ require('./services/mongoConnect');
 require('./routes/googleAuth')(app);
 var indexRouter = require('./routes/index');
 var product = require('./routes/product'); // Imports routes for the products
+var commentRouter=require('./routes/comment.route');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/product',product);
+app.use('/comment',commentRouter);
 //app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
