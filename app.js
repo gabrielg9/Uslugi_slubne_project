@@ -14,6 +14,7 @@ require('./services/cookieSession')(app);
 require('./models/product');
 require('./models/User');
 require('./models/Comment');
+require('./models/Order');
 require('./services/passport');
 require('./services/mongoConnect');
 
@@ -24,6 +25,7 @@ require('./routes/googleAuth')(app);
 var indexRouter = require('./routes/index');
 var product = require('./routes/product'); // Imports routes for the products
 var commentRouter=require('./routes/comment.route');
+var order = require('./routes/Order');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/product',product);
 app.use('/comment',commentRouter);
+app.use('/order', order);
 //app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
