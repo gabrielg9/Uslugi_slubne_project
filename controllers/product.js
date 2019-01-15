@@ -71,3 +71,10 @@ exports.product_search_name = function (req, res,next) {
         res.send(product);
     })
 };
+
+exports.product_search_type = function (req, res,next) {
+    Product.find({type : req.params.type}, function (err, product) {
+        if (err) return next(err);
+        res.send(product);
+    })
+};

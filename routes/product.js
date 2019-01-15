@@ -23,6 +23,8 @@ router.delete('/:id/delete', product_controller.product_delete)
 
 router.get('/showAll', product_controller.product_show_all)
 
-router.get('/search/:name', product_controller.product_search_name)
+//router.get('/search/:name', product_controller.product_search_name)
+
+router.get('/search/:type', product_controller.product_search_type)
 
 module.exports = router;
