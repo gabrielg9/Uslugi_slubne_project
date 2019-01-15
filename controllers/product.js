@@ -45,15 +45,29 @@ exports.product_delete = function (req, res) {
 };
 
 exports.findAll = function(req, res, next){
-    const sort_by = {};
+   const sort_by = {};
     sort_by[req.query.sort_by || 'price'] = req.query.order_by || 'desc';
     Product.find(req.filters)
         .sort(sort_by)
-        .exec()
+        //.exec()
         .then(results => res.status(200).json({
             count: results.length,
-            rooms: results
+            products: results,
         }))
         .catch(next)
 
+};
+
+exports.product_show_all = function (req, res,next) {
+        Product.find({}, function (err, product) {
+            if (err) return next(err);
+            res.send(product);
+        })
+};
+
+exports.product_search_name = function (req, res,next) {
+    Product.find({name : req.params.name}, function (err, product) {
+        if (err) return next(err);
+        res.send(product);
+    })
 };
