@@ -45,12 +45,6 @@ exports.product_delete = function (req, res) {
     })
 };
 
-/*exports.findOne = function(req, res, next) {
-    const prod = Product.find({"name" : {$regex : ".*uk.*"} });
-    if (!prod) return next();
-    console.log(circularJson.stringify(prod));
-    return res.status(200).send({ data: prod });
-};*/
 
 exports.findAll = function(req, res, next){
    const sort_by = {};

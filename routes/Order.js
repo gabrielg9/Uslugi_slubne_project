@@ -7,7 +7,6 @@ var order_controller = require('../controllers/Order');
 
 router.post('/create', order_controller.order_create)
 
-
 router.get('/orders', order_controller.get_orders)
 
 router.get('/orderId', order_controller.get_order)

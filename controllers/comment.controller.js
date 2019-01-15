@@ -30,8 +30,6 @@ exports.comment_update = function (req, res,next) {
         if (err) return next(err);
         res.send('Comment udpated.');
     });
-
-
 };
 
 exports.comment_delete = function (req, res,next) {
@@ -39,7 +37,6 @@ exports.comment_delete = function (req, res,next) {
         if (err) return next(err);
         res.send('Comment deleted successfully!');
     })
-
 };
 
 exports.comment_readAll = function (req, res,next) {

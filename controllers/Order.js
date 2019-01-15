@@ -1,6 +1,4 @@
 var Order = require('../models/Order');
-var product_ava = require('../models/product');
-var x = product_ava.valueOf(availability);
 
 
 exports.order_create = function (req, res) {
@@ -19,7 +17,6 @@ exports.order_create = function (req, res) {
             }
             res.send('Order Created successfully')
         })
-
     };
 
 exports.get_order = function(req, res){
