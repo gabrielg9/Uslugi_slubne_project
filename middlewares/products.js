@@ -18,12 +18,5 @@ const getFilters = function(req, res, next) {
     req.filters = {...searchFilter, ...schemaFilters};
     next();
 
-    //export default function getFilters(req, res, next) {
-    //  const availableFilters = Object.keys(Song.schema.paths);
-    //const filters = qs.parse(req.query);
-
-    //req.filters = _.pickBy(filters, (value, key) => availableFilters.indexOf(key) > -1);
-    //next();
-    //}
 }
 module.exports = getFilters;

@@ -1,5 +1,6 @@
 var Product = require('../models/product');
 const getView = require('get-view');
+var circularJson = require('circular-json');
 
 //Simple version, without validation or sanitation
 exports.test = function (req, res) {
@@ -44,6 +45,13 @@ exports.product_delete = function (req, res) {
     })
 };
 
+/*exports.findOne = function(req, res, next) {
+    const prod = Product.find({"name" : {$regex : ".*uk.*"} });
+    if (!prod) return next();
+    console.log(circularJson.stringify(prod));
+    return res.status(200).send({ data: prod });
+};*/
+
 exports.findAll = function(req, res, next){
    const sort_by = {};
     sort_by[req.query.sort_by || 'price'] = req.query.order_by || 'desc';
@@ -55,7 +63,6 @@ exports.findAll = function(req, res, next){
             products: results,
         }))
         .catch(next)
-
 };
 
 exports.product_show_all = function (req, res,next) {

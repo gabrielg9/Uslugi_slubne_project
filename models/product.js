@@ -6,6 +6,7 @@ var ProductSchema = new Schema({
     name: {type: String, required: true, max: 100},
     price: {type: Number, required: true},
     type: {type: String, required: true, max: 100},
+    availability: {type: Number, required:true},
 });
 
 

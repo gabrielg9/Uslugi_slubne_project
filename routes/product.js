@@ -15,7 +15,9 @@ router.post('/create', product_controller.product_create)
 
 router.get('/sort', getFilters, product_controller.findAll)
 
-//router.get('/:id', product_controller.product_details);
+//router.get('/filter', getFilters, product_controller.findOne)
+
+router.get('/:id', product_controller.product_details)
 
 router.put('/:id/update', product_controller.product_update)
 
